@@ -1,8 +1,8 @@
 {
 	"name": "@nagman/sass-fontface",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A package to easily load woff and woff2 fonts into your SASS with a @font-face mixin",
-	"main": "font-face.scss",
+	"main": "mixin.scss",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/nagman/sass-fontface.git"

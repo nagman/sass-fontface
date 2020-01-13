@@ -8,7 +8,7 @@ A simple mixin to load your fonts without the `@font-face` boilerplate.
 2. Import it into your SCSS code:
 
 ```scss
-@import 'sass-fontface';
+@import '@nagman/sass-fontface/mixin';
 ```
 
 3. Include required fonts
