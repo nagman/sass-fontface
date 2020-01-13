@@ -1,5 +1,5 @@
 {
-	"name": "sass-fontface",
+	"name": "@nagman/sass-fontface",
 	"version": "1.0.0",
 	"description": "A package to easily load woff and woff2 fonts into your SASS with a @font-face mixin",
 	"main": "index.js",
