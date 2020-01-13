@@ -1,25 +1,25 @@
 {
-	"name": "@nagman/sass-fontface",
-	"version": "1.1.0",
-	"description": "A package to easily load woff and woff2 fonts into your SASS with a @font-face mixin",
-	"main": "mixin.scss",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/nagman/sass-fontface.git"
-	},
-	"author": "nagman",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/nagman/sass-fontface/issues"
-	},
-	"homepage": "https://github.com/nagman/sass-fontface#readme",
-	"keywords": [
-		"sass",
-		"scss",
-		"css",
-		"font-face",
-		"mixins",
-		"utility",
-		"css3"
-	]
+  "name": "@nagman/sass-fontface",
+  "version": "1.1.0",
+  "description": "A package to easily load woff and woff2 fonts into your SASS with a @font-face mixin",
+  "main": "mixin.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nagman/sass-fontface.git"
+  },
+  "author": "nagman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nagman/sass-fontface/issues"
+  },
+  "homepage": "https://github.com/nagman/sass-fontface#readme",
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "font-face",
+    "mixins",
+    "utility",
+    "css3"
+  ]
 }

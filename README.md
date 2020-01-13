@@ -7,47 +7,50 @@ A simple mixin to load your fonts without the `@font-face` boilerplate.
 1. `yarn add @nagman/sass-fontface`
 
 2. **Rename your fonts** following this format: `name-weight-style.woff`, and put them in a folder in your project:
+
 ```
 project
 └── fonts
-	├── foobar-400-normal.woff
-	├── foobar-400-normal.woff2
-	├── foobar-400-italic.woff
-	├── foobar-400-italic.woff2
-	├── foobar-700-normal.woff
-	└── foobar-700-normal.woff2
+  ├── foobar-400-normal.woff
+  ├── foobar-400-normal.woff2
+  ├── foobar-400-italic.woff
+  ├── foobar-400-italic.woff2
+  ├── foobar-700-normal.woff
+  └── foobar-700-normal.woff2
 ```
 
 3. Import the mixin into your SCSS code:
+
 ```scss
-@import '@nagman/sass-fontface/mixin';
+@import "@nagman/sass-fontface/mixin";
 ```
 
 4. Include fonts by providing every variant of it:
 
 ```scss
 @include fontFace(
-	$name: 'foobar',
-	$variants: (
-		(weight: 400, style: normal),
-		(weight: 400, style: italic),
-		(weight: 700, style: normal),
-	)
+  $name: "foobar",
+  $variants: (
+    (weight: 400, style: normal),
+    (weight: 400, style: italic),
+    (weight: 700, style: normal)
+  )
 );
 ```
 
 5. Enjoy your webfonts:
+
 ```scss
 html {
-	font-family: 'foobar', sans-serif;
+  font-family: "foobar", sans-serif;
 }
 
 strong {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 em {
-	font-style: italic;
+  font-style: italic;
 }
 ```
 
@@ -55,33 +58,37 @@ em {
 
 ```css
 @font-face {
-	font-family: "foobar";
-	src: url("/fonts/foobar-400-normal.woff2") format("woff2"), url("/fonts/foobar-400-normal.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+  font-family: "foobar";
+  src: url("/fonts/foobar-400-normal.woff2") format("woff2"), url("/fonts/foobar-400-normal.woff")
+      format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: "foobar";
-	src: url("/fonts/foobar-400-italic.woff2") format("woff2"), url("/fonts/foobar-400-italic.woff") format("woff");
-	font-weight: 400;
-	font-style: italic;
-	font-display: swap;
+  font-family: "foobar";
+  src: url("/fonts/foobar-400-italic.woff2") format("woff2"), url("/fonts/foobar-400-italic.woff")
+      format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: "foobar";
-	src: url("/fonts/foobar-700-normal.woff2") format("woff2"), url("/fonts/foobar-700-normal.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+  font-family: "foobar";
+  src: url("/fonts/foobar-700-normal.woff2") format("woff2"), url("/fonts/foobar-700-normal.woff")
+      format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 ```
 
 ## Options
 
 The mixin takes 4 parameters:
+
 - `$name`: a name for the font. Will be used in your `font-family` properties ;
 - `$variants`: a list of variants for this font. Each item is a map with two keys:
   - `weight`: `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800` or `900` ;
@@ -104,12 +111,13 @@ I highly recommend you to **subset** your fonts before serving them. They will l
 You can do this with [Transfonter](https://transfonter.org/).
 
 Here are my recommended settings for French (remove the accented characters if you only want English):
+
 - Family support: `On`
 - Add local() rule: `Off`
 - Fix vertical metrics: `Off`
 - Autohint font: `Off`
 - Base64 encode: `Off`
 - Formats: `WOFF` and `WOFF2`
-- Subsets: *leave blank*
-- Characters: ```!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~¢£¥¨©«®´¸»ÀÂÆÇÈÉÊËÎÏÔÙÛÜàâæçèéêëîïôùûüÿŒœŸˆ˚˜–—‘’‚“”„•…‹›€™```
-- Unicode ranges: *leave blank*
+- Subsets: _leave blank_
+- Characters: `` !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~¢£¥¨©«®´¸»ÀÂÆÇÈÉÊËÎÏÔÙÛÜàâæçèéêëîïôùûüÿŒœŸˆ˚˜–—‘’‚“”„•…‹›€™ ``
+- Unicode ranges: _leave blank_

@@ -1,54 +1,54 @@
 $weights: 100 200 300 400 500 600 700 800 900;
 $styles: normal italic oblique;
 
-@mixin fontFace($name, $variants, $dir: '/fonts', $swap: true) {
-	@if (not $name) {
-		@error 'You must provide a $name for the font';
-	} @else if (type-of($dir) != string) {
-		@error 'The $name option is incorrect. You must provide a string';
-	}
+@mixin fontFace($name, $variants, $dir: "/fonts", $swap: true) {
+  @if (not $name) {
+    @error 'You must provide a $name for the font';
+  } @else if (type-of($dir) != string) {
+    @error 'The $name option is incorrect. You must provide a string';
+  }
 
-	@if (not $variants) {
-		@error 'You must provide $variants for the "#{$name}" font';
-	} @else if (type-of($variants) != list) {
-		@error 'The $variants option of the "#{$name}" font is incorrect. You must provide a list';
-	}
+  @if (not $variants) {
+    @error 'You must provide $variants for the "#{$name}" font';
+  } @else if (type-of($variants) != list) {
+    @error 'The $variants option of the "#{$name}" font is incorrect. You must provide a list';
+  }
 
-	@each $variant in $variants {
-		$weight: map-get($variant, 'weight');
-		@if (not $weight) {
-			@error 'You must provide a weight property for the variant n°#{index($variants, $variant)} of the "#{$name}" font';
-		}
-		@if (not index($weights, $weight)) {
-			@error 'The weight property of the variant n°#{index($variants, $variant)} of the "#{$name font}" is incorrect. Allowed values: #{$weights}';
-		}
+  @each $variant in $variants {
+    $weight: map-get($variant, "weight");
+    @if (not $weight) {
+      @error 'You must provide a weight property for the variant n°#{index($variants, $variant)} of the "#{$name}" font';
+    }
+    @if (not index($weights, $weight)) {
+      @error 'The weight property of the variant n°#{index($variants, $variant)} of the "#{$name font}" is incorrect. Allowed values: #{$weights}';
+    }
 
-		$style: map-get($variant, 'style');
-		@if (not $style) {
-			@error 'You must provide a style property for the variant n°#{index($variants, $variant)} of the "#{$name}" font';
-		}
-		@if (not index($styles, $style)) {
-			@error 'The style property of the variant n°#{index($variants, $variant)} of the "#{$name}" font is incorrect. Allowed values: #{$styles}';
-		}
+    $style: map-get($variant, "style");
+    @if (not $style) {
+      @error 'You must provide a style property for the variant n°#{index($variants, $variant)} of the "#{$name}" font';
+    }
+    @if (not index($styles, $style)) {
+      @error 'The style property of the variant n°#{index($variants, $variant)} of the "#{$name}" font is incorrect. Allowed values: #{$styles}';
+    }
 
-		@if (type-of($dir) != string) {
-			@error 'The $dir option of the "#{$name}" font is incorrect. You must provide a string path to your fonts\' files directory';
-		} @else if (str-slice($dir, -1) == '/') {
-			$dir: str-slice($dir, 0, str-length($dir) - 1);
-		}
+    @if (type-of($dir) != string) {
+      @error 'The $dir option of the "#{$name}" font is incorrect. You must provide a string path to your fonts\' files directory';
+    } @else if (str-slice($dir, -1) == "/") {
+      $dir: str-slice($dir, 0, str-length($dir) - 1);
+    }
 
-		$url: '#{$dir}/#{$name}-#{$weight}-#{$style}.woff';
+    $url: "#{$dir}/#{$name}-#{$weight}-#{$style}.woff";
 
-		@font-face {
-			font-family: $name;
-			src: url($url+'2') format('woff2'), url($url) format('woff');
-			font-weight: $weight;
-			font-style: $style;
-			@if ($swap == true) {
-				font-display: swap;
-			} @else if ($swap != false) {
-				@error 'The swap option is incorrect for #{$name}. It can only be true or false';
-			}
-		}
-	}
+    @font-face {
+      font-family: $name;
+      src: url($url+"2") format("woff2"), url($url) format("woff");
+      font-weight: $weight;
+      font-style: $style;
+      @if ($swap == true) {
+        font-display: swap;
+      } @else if ($swap != false) {
+        @error 'The swap option is incorrect for #{$name}. It can only be true or false';
+      }
+    }
+  }
 }
